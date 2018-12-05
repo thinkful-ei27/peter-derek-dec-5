@@ -1,3 +1,5 @@
+'use strict';
+
 const HEROES = [
   { id: 1, name: 'Captain America', squad: 'Avengers' },
   { id: 2, name: 'Iron Man', squad: 'Avengers' },
@@ -11,15 +13,20 @@ const HEROES = [
 
 function findOne(arr, query) {
   const keys = Object.keys(query);
-  const results = arr.filter(hero => hero[keys[0]] === query[keys[0]]);
-  if (results[0] !== undefined) {
-    if (keys.length > 1) {
-      return results.filter((result) => result[i] === results[].id) ? results[0] : null;
-    } else {
-      return results[0];
+  const results = arr.find(hero => {
+    for (let key in query) {
+      if (!(key in hero)) {
+        return false;
+      } else if (query[key] !== hero[key]) {
+        return false;
+      }
     }
-  } else {
+    return true;
+  });
+  if (results === undefined) {
     return null;
+  } else {
+    return results;
   }
 }
 
