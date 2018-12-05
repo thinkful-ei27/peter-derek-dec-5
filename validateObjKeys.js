@@ -33,6 +33,12 @@ function validateKeys(object, expectedKeys) {
   } 
 }
 
+// Peter's solution from earlier repl.it
+/* function validateKeys(object, expectedKeys) {
+  const objKeysArr = Object.keys(object);
+  return objKeysArr.every((key, index) => key === expectedKeys[index]);
+} */
+
 /* From here down, you are not expected to 
    understand.... for now :)  
    
